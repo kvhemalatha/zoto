@@ -27,8 +27,12 @@ function addCartItems(product) {
 }
 function cartQtyIncrement(productId) {
     let cartItems = getCartITems()
+//     if (!Array.isArray(cartItems)) {
+//     cartItems = []; 
+//   }
+
     let exist = cartItems.find((item) => {
-        return item.id === productId
+        return item.id == productId
     })
     if (exist) {
         exist.qty++
@@ -39,17 +43,17 @@ function cartQtyIncrement(productId) {
 function cartQtyDecrement(productId) {
     let cartItems = getCartITems()
     let exist = cartItems.find((item) => {
-        return item.id === productId
+        return item.id == productId
     })
     if (exist) {
-
-        exist.qty--
-        if (exist.qty == 0) {
-    cartItems = cartItems.find((item) => {
-                return cartItems[item]!== productId
-            })
-        }
-    }
+if(exist.qty > 0){
+  // 2. Code block to run
+  console.log(exist.qty);   
+  exist.qty-- 
+} 
+       
+       
+}
     setCartItems(cartItems)
 
 }
@@ -57,15 +61,17 @@ function productQty(productId) {
     
     let cartItems = getCartITems()
     
-    let exist = cartItems.find((item) => {
-            return Number(item.id) === productId
-        })
-        if (exist) {
-            // console.log(exist)
-            return exist.qty
+let found = cartItems.find((item) => item.id == productId);
+
+    // let exist = cartItems.find((item) => {
+    //         return Number(item.id) === productId
+    //     })
+        if (found) {
+            // console.log("jhjjj",found)
+            return found.qty
         }
         return 0
 
 
-    setCartItems(cartItems)
+    setCartItems(found)
 }

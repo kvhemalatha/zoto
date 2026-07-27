@@ -253,10 +253,10 @@ function reportingDisply(products) {
           <div class="product-price">
               <p class="discount-price">$${finalPrice}</p>
               <p class="actual-price">$${cat.price}</p>
-                  ${qty===0?`<button class="addBtn" data-id="${cat.id}" data-title="${cat.title}" data-price="${finalPrice}" data-img="${cat.thumbnail}" data-qty="${qty}">Add</button>`
+                  ${qty===0?`<button class-data="classdata" class="addBtn" data-id="${cat.id}" data-title="${cat.title}" data-price="${finalPrice}" data-img="${cat.thumbnail}" data-qty="${qty}">Add</button>`
                   :
                   `<div calass="cartAdd_inc_desc_fun">
-                    <button class="incBtn" data-id="${cat.id}"  data-qty="${qty}">+</button><span class=qty_fn><input class="qty_val_input" type="text" name="qty_val" value="${qty}" id="cart_btn_input_qty_inc_${cat.id}"></span><button class="descBtn" data-id="${cat.id}">-</button>
+                    <button class="incBtn" data-id="${cat.id}"  data-qty="${qty}">+</button><span class=qty_fn><input class="qty_val_input" type="text" name="qty_val" value="${qty}" id="cart_btn_input_qty_inc_${cat.id}"></span><button class="descBtn" data-id="${cat.id}" data-qty="${qty}">-</button>
                   </div>`              
               }
           </div>
@@ -270,6 +270,7 @@ function reportingDisply(products) {
  </div>`
 
   })
+  wishlistIcons() 
 addEventfn()
 increaseButtonEvents()
  decreaseButtonEvents()
@@ -391,7 +392,7 @@ function increaseButtonEvents() {
   increaseBtns.forEach((btn) => {
     // console.log(btn)
     btn.addEventListener("click", () => {
-      console.dir(btn)
+      // console.dir(btn)
       cartQtyIncrement(btn.dataset.id)
       let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
       qty_btn.value=btn.dataset.qty
@@ -405,7 +406,10 @@ function decreaseButtonEvents() {
   let decreaseBtns = document.querySelectorAll(".descBtn")
   decreaseBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      decrementQuantity(Number(btn.dataset.id))
+      cartQtyDecrement(Number(btn.dataset.id))
+      console.dir(btn)
+      let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
+      qty_btn.value=btn.dataset.qty
       reportingDisply(allproduct )
     })
   })
