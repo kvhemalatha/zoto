@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-    <link rel="stylesheet" href="./product.css">
+    <title>Category</title>
+    <link rel="stylesheet" href="./category.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- index page header nav bar start-->
     <nav>
         <section class="nav_section">
             <!-- index page logo start -->
@@ -35,7 +36,7 @@
             <!-- index page mid pager links start -->
             <aside id="mid-nav-head" class="nav_aside">
                 <a href="./index.html">Home</a>
-                <a class="active" href="./product.html">Products</a>
+                <a href="./product.html">Products</a>
             </aside>
             <!-- index page mid pager links end -->
             <!-- index page right user & cart start -->
@@ -46,20 +47,15 @@
             <!-- index page right user & cart end -->
         </section>
     </nav>
-
+    <!-- index page header nav bar end-->
+    <!-- clickable product info start -->
     <header>
-        <aside class="searchBar">
-            <div class="searchInput">
-                <i class="fa-solid fa-magnifying-glass search_icon"></i>
-                <input type="text" placeholder="search products name" name="searchPro" id="searchPro">
-                <a href="./index.html"><i class="fa-solid fa-arrow-right"></i>Browse products</a>
-            </div>
-        </aside>
+        <aside class="cat_side_one"></aside>
+        <aside class="cat_side_two"></aside>
     </header>
-    <!-- index page product categories start-->
-    <section class="products_container">
-
-
+    <!-- clickable product info end -->
+    <!-- clickable product related required category list  start -->
+    <section>
         <aside class="pro_cat_side_one">
             <h3>Sort By </h3>
             <div class="list_left_sort">
@@ -79,27 +75,17 @@
                     for="discountPrice">DiscountPrice</label>
             </div>
             <div class="list_left_sort">
-                <label for="maxPrice" id="mix_price">MaxPrice $<span>10</span></label>
-                <input type="range" name="maxPrice" id="maxPrice" min="0" max="10" value="10">
+                <label for="maxPrice" id="mix_price">MaxPrice $<span>50000</span></label>
+                <input type="range" name="maxPrice" id="maxPrice" min="0" max="50000" value="50000">
             </div>
             <div class="list_left_sort">
                 <input type="checkbox" name="inStock" id="inStock" value="inStock"><label for="inStock">InStock</label>
             </div>
-            <span class="total">total:<span id="tot_vla_pro"></span></span>
         </aside>
-        <!-- product categories list start-->
-        <aside class="pro_cat_side_two product_items" id="product_items_list">
-            
-            <!-- <div class="items_grid">
-                <div class="category_image"></div>
-                <div class="category_name"></div>                
-            </div> -->
+        <aside class="pro_cat_side_two">           
         </aside>
-        <!-- product categories list end-->
     </section>
-    <!-- index page product categories end-->
-
-
+    <!-- clickable product related required category list  start -->
     <!-- footer start -->
     <footer class="footer_container">
         <aside class="footer_items">
@@ -110,8 +96,8 @@
         </aside>
     </footer>
     <!-- footer end -->
-    <script src="./product.js"></script>
-    <script src="./crt.js"></script>
+    <script src="./category.js"></script>
+    <!-- <script src="./crt.js"></script> -->
 </body>
 
 </html>

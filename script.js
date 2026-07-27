@@ -22,7 +22,7 @@ let category_items = [
   {
     slug: "beauty",
     name: "Beauty",
-    url: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp", 
+    url: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp",
   },
   {
     slug: "fragrances",
@@ -141,13 +141,37 @@ let category_items = [
   }
 ]
 
-let fetchCate=()=>{
-  let cat_items=document.getElementById("product_items_list")
- category_items.forEach((cat)=>{
-  cat_items.innerHTML+=`<div class="items_grid">
+let fetchCate = () => {
+  let cat_items = document.getElementById("product_items_list")
+  category_items.forEach((cat) => {
+    cat_items.innerHTML += `<div class="items_grid">
                 <div class="category_image"><img src="${cat.url}" alt="${cat.slug}"></div>
                 <div class="category_name">${cat.name}</div>                
             </div>`
- })
+  })
 }
 fetchCate()
+
+//get individual categories
+let cate_items = document.querySelectorAll(".items_grid")
+
+cate_items.forEach((item) => {
+  let item_name_modify = item.innerText.replace(" ", "-")
+  let item_name = item.querySelectorAll("img").alt
+  item.addEventListener("click", () => {
+    cat_name = item.querySelector("img").alt
+    sessionStorage.setItem("clickcart", cat_name)
+    fetchindDetails()
+    setTimeout(() => {
+      location.assign("./category.html")
+    }, 2000)
+  });
+})
+async function fetchindDetails() {
+  let cat_name_s = sessionStorage.getItem("clickcart")
+  let url_s = `https://dummyjson.com/products/category/${cat_name_s}`
+  let res = await fetch(url_s)
+  let { products } = await res.json()
+  // console.log(res)
+  localStorage.setItem("clickcartdata", JSON.stringify(products))
+}
