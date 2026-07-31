@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="./cat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./asserts/zepto-favicon.webp" type="image/x-icon">
+</head>
+
+<body>
+
+
+
+
+    <nav>
+        <section class="nav_section">
+            <!-- index page logo start -->
+            <aside id="left-nav-head" class="nav_aside">
+                <div id="logo">
+                    <a href="./index.html" class="active">
+                        <h2><i class="fa-solid fa-z"></i></h2>
+                    </a>
+                    <span id="address">
+                        <p>Deliver <span>10 minutes</span></p>
+                        <p class="location" id="location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span id="demo">Select Address</span>
+
+                        </p>
+                    </span>
+                </div>
+            </aside>
+            <!-- index page logo end -->
+            <!-- index page mid pager links start -->
+            <aside id="mid-nav-head" class="nav_aside">
+                <a href="./index.html">Home</a>
+                <a class="active" href="./product.html">Products</a>
+            </aside>
+            <!-- index page mid pager links end -->
+            <!-- index page right user & cart start -->
+            <aside id="right-nav-head" class="nav_aside">
+                <span id="nav_user"><i class="fa-regular fa-user"></i></span>
+                <span id="nav_cart"><i class="fa-regular fa-cart-shopping"
+                        onclick="location.assign('./cat.html')"></i></span>
+            </aside>
+            <!-- index page right user & cart end -->
+        </section>
+    </nav>
+    <!-- cart section -->
+    <main class="cart-container">
+        <aside class="cart-containe-one">
+            <h2>My Cart</h2>
+            <div class="cart-location">⚡&nbsp;Delivered 18 min ,Hyderabad.</div>
+        </aside>
+        <aside class="cart-containe-two">
+           
+        </aside>
+        <aside class="cart-containe-three">
+            <div class="containr-items-total">
+                <h2>Bill amount:</h2>
+                    <div class="items-bill"><p class="item-name">items(5)</p><p class="item-value">$1000</p></div>
+                    <div class="items-bill"><p  class="item-name">items(5)</p><p class="item-value">$1000</p></div>
+                    <div class="items-bill"><p class="item-name">items(5)</p><p class="item-value">$1000</p></div>
+                    <div class="items-bill"><p class="item-name">items(5)</p><p class="item-value">$1000</p></div>
+                    <div class="items-bill"><h3 class="item-name">Gand total:</h3><p class="item-value">$1000</p></div>
+                <div>
+
+                </div>
+            </div>
+        </aside>
+    </main>
+    <script src="./crt.js"></script>
+    <script src="./cat.js"></script>
+    
+</body>
+
+</html>

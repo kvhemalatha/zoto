@@ -193,7 +193,7 @@ section {
   width: 80%;
   margin: auto;
   padding: 1rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
  grid-gap: 0.5rem;
 
@@ -201,7 +201,7 @@ section {
 
 .pro_cat_side_one {
   /* flex-basis: 10%; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: sticky;
   top: 100px;
@@ -212,7 +212,7 @@ section {
 .pro_cat_side_two {
   /* flex-basis: 90%; */
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(5,1fr);
    grid-gap:1rem;
 }
 .category_item_info_carts{
@@ -331,4 +331,10 @@ color: gold;
 }
 .wishlist>.clicked{
   color: red ;
+}
+.qty_btn{
+  border-radius: 50%;
+  border: none;
+  background-color:  rgb(96, 8, 198);
+  color: #fff;
 }

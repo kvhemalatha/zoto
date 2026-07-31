@@ -41,7 +41,9 @@ function product_category_list(fetch_pro_data_loc_list) {
   pro_cat_list.innerHTML = ""
 
   fetch_pro_data_loc_list.forEach((item) => {
-    // console.log(item)
+let finalPrice=Math.ceil(item.price - (item.price * item.discountPercentage / 100))
+let qty=productQty(item.id)
+    //  console.log(item)
     pro_cat_list.innerHTML += `
 <div class="category_item_info_carts">
                 <div class="cart_top_info"> 
@@ -54,9 +56,14 @@ function product_category_list(fetch_pro_data_loc_list) {
           <p class="product-title">${item.title}</p>
           <p class="product-brand">${item.brand || "Imported"}</p>
           <div class="product-price">
-            <p class="discount-price">$${Math.ceil(item.price - (item.price * item.discountPercentage / 100))}</p>
+            <p class="discount-price">$${finalPrice}</p>
             <p class="actual-price">$${item.price}</p>
-            <button class="addBtn">Add</button>
+           ${qty===0?`<button class-data="classdata" class="addBtn" data-id="${item.id}" data-title="${item.title}" data-price="${finalPrice}" data-img="${item.thumbnail}" data-qty="${qty}">Add</button>`
+                  :
+                  `<div calass="cartAdd_inc_desc_fun">
+                    <button class="qty_btn incBtn" data-id="${item.id}"  data-qty="${qty}">+</button><span class=qty_fn>${qty}</span><button class="qty_btn descBtn" data-id="${item.id}" data-qty="${qty}">-</button>
+                  </div>`              
+              }
           </div>
           <p class="ratings"><i class="fa-regular fa-star"></i>${item.rating} (${item.stock})</p>
                 </div>
@@ -66,6 +73,9 @@ function product_category_list(fetch_pro_data_loc_list) {
   })
 
   wishlistIcons()
+  addEventfn()
+increaseButtonEvents()
+ decreaseButtonEvents()
 }
 product_category_list(fetch_pro_data_loc)
 
@@ -94,9 +104,9 @@ function applyingFilters() {
   let filteredProducts = [...org_fetch_pro_data_loc]
   // console.log(filteredProducts)
   if (priceAsc.checked) {
-    filteredProducts.sort((a, b) => a.price - b.price)
+    filteredProducts.sort((a, b) => Math.ceil(a.price - (a.price * a.discountPercentage / 100))- (Math.ceil(b.price - (b.price * b.discountPercentage / 100))))
   } else if (priceDesc.checked) {
-    filteredProducts.sort((a, b) => b.price - a.price)
+    filteredProducts.sort((a, b) => Math.ceil(b.price - (b.price * b.discountPercentage / 100))- (Math.ceil(a.price - (a.price * a.discountPercentage / 100))))
   } else if (discount.checked) {
     filteredProducts.sort((a, b) => b.discountPercentage - a.discountPercentage)
   } else {
@@ -128,3 +138,58 @@ maxPrice.addEventListener("input", () => {
   applyingFilters()
 })
 applyingFilters()
+
+
+
+//addEvent
+function addEventfn(){
+  let list_cat_id=document.querySelectorAll(".addBtn")
+  //console.dir(list_cat_id)
+  list_cat_id.forEach((lci)=>{
+    //  console.dir(lci)
+    //let product=""
+lci.addEventListener("click",()=>{
+let product={
+  id:Number(lci.dataset.id),
+  title: lci.dataset.title,
+  price: Number(lci.dataset.price),
+  img:lci.dataset.img,
+  qty:Number(lci.dataset.qty)
+}
+// console.log(`product${product}`)
+      addCartItems(product)
+      product_category_list(fetch_pro_data_loc)
+  })
+ 
+  })
+   
+}
+
+function increaseButtonEvents() {
+  let increaseBtns = document.querySelectorAll(".incBtn")
+  // console.log(increaseBtns)
+  increaseBtns.forEach((btn) => {
+    // console.log(btn)
+    btn.addEventListener("click", () => {
+      // console.dir(btn)
+      cartQtyIncrement(btn.dataset.id)
+      // let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
+      // qty_btn.value=btn.dataset.qty
+       product_category_list(fetch_pro_data_loc)
+    })
+  })
+}
+
+//!Decrease Button Events
+function decreaseButtonEvents() {
+  let decreaseBtns = document.querySelectorAll(".descBtn")
+  decreaseBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      cartQtyDecrement(Number(btn.dataset.id))
+      // console.dir(btn)
+      // let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
+      // qty_btn.value=btn.dataset.qty
+      product_category_list(fetch_pro_data_loc)
+    })
+  })
+}

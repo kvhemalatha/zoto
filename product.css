@@ -410,3 +410,10 @@ header {
 }
 
 /* end sarch bar*/
+
+.qty_btn{
+  border-radius: 50%;
+  border: none;
+  background-color:  rgb(96, 8, 198);
+  color: #fff;
+}

@@ -256,7 +256,7 @@ function reportingDisply(products) {
                   ${qty===0?`<button class-data="classdata" class="addBtn" data-id="${cat.id}" data-title="${cat.title}" data-price="${finalPrice}" data-img="${cat.thumbnail}" data-qty="${qty}">Add</button>`
                   :
                   `<div calass="cartAdd_inc_desc_fun">
-                    <button class="incBtn" data-id="${cat.id}"  data-qty="${qty}">+</button><span class=qty_fn><input class="qty_val_input" type="text" name="qty_val" value="${qty}" id="cart_btn_input_qty_inc_${cat.id}"></span><button class="descBtn" data-id="${cat.id}" data-qty="${qty}">-</button>
+                    <button class="qty_btn incBtn" data-id="${cat.id}"  data-qty="${qty}">+</button>   <span class=qty_fn>${qty}</span>   <button class="qty_btn descBtn" data-id="${cat.id}" data-qty="${qty}">-</button>
                   </div>`              
               }
           </div>
@@ -371,7 +371,7 @@ function addEventfn(){
     //let product=""
 lci.addEventListener("click",()=>{
 let product={
-  id:lci.dataset.id,
+  id:Number(lci.dataset.id),
   title: lci.dataset.title,
   price: Number(lci.dataset.price),
   img:lci.dataset.img,
@@ -394,8 +394,8 @@ function increaseButtonEvents() {
     btn.addEventListener("click", () => {
       // console.dir(btn)
       cartQtyIncrement(btn.dataset.id)
-      let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
-      qty_btn.value=btn.dataset.qty
+      // let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
+      // qty_btn.value=btn.dataset.qty
       reportingDisply(allproduct )
     })
   })
@@ -408,8 +408,8 @@ function decreaseButtonEvents() {
     btn.addEventListener("click", () => {
       cartQtyDecrement(Number(btn.dataset.id))
       console.dir(btn)
-      let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
-      qty_btn.value=btn.dataset.qty
+      // let qty_btn=document.getElementById(`cart_btn_input_qty_inc_${btn.dataset.id}`)
+      // qty_btn.value=btn.dataset.qty
       reportingDisply(allproduct )
     })
   })

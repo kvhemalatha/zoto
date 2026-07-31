@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* nav,
+#banner_cotainer,
+header,
+.products_container {
+  border: 1px solid red;
+}  */
+
+nav {
+
+    /* border: 1px solid red; */
+    background-color: rgb(43, 3, 96);
+    width: 100%;
+
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+
+}
+
+.nav_aside {
+    width: 33.3%;
+    /* border: 1px solid red; */
+
+}
+
+.nav_section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    height: 5rem;
+    padding: 0 4%;
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+}
+
+#mid-nav-head {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+}
+
+#mid-nav-head>a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+#right-nav-head>span>i,
+i {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+
+}
+
+#logo {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 0.8rem;
+}
+
+#logo>#address>p>span:first-child {
+    color: yellow;
+}
+
+h2>i {
+    border: 1px solid rgba(174, 0, 255, 0.32);
+    border-radius: 50%;
+    padding: 0.7rem;
+}
+
+#logo {
+    color: white;
+}
+
+.location {
+    display: flex;
+    gap: 0.3rem;
+    cursor: pointer;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.active {
+    color: yellow !important;
+}
+
+#right-nav-head {
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+
+}
+
+/* cart container*/
+
+.cart-container {
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.cart-container>.cart-containe-one {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border: 1px solid rgba(104, 94, 94, 0.61);
+    border-radius: 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cart-containe-one>.cart-location {
+    color: rgba(33, 1, 48, 0.932);
+    padding: 0 0.7rem;
+    border-radius: 2rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(236, 208, 248, 0.342);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cart-container>.cart-containe-two {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    /* border: 1px solid rgba(104, 94, 94, 0.61); */
+    border-radius: 0.7rem;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+
+
+.cart-container>.cart-containe-three {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border: 1px solid rgba(104, 94, 94, 0.61);
+    border-radius: 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+
+}
+.list-empty{
+    padding: 1rem !important;;
+    display: grid !important;;
+    grid-template-columns: 1fr !important;
+    /* border: 1px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;; 
+   border-radius: 0.7rem !important;;
+}
+.cart-containe-two>.container-items { 
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    /* border: 1px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+border-radius: 0.7rem;
+}
+
+.items-info-para{
+     flex-direction: column;
+    display: flex; 
+    justify-content: center;  
+}
+.items-img>img {
+    width: 100px;
+    height: 100px;
+}
+.container-items>.items-info{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;     
+}
+.item-buttons{
+display: flex;
+    justify-content: center;    
+    align-items: center;  
+}
+.item-buttons>i{
+color: black;
+font-size: 1.5rem;
+ 
+}
+.containr-items-total{
+ display: flex;
+ flex-direction: column;
+padding: 0.5rem;
+ gap:1rem
+    
+}
+.containr-items-total>.items-bill{
+ display: grid;
+grid-template-columns: repeat(2,1fr);
+
+}
+.items-bill>.item-value{
+    text-align: right;
+}
